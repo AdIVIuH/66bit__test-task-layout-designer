@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Заголовок </title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- gridstack -->
+  <link href="plugins/gridstack/gridstack.css" rel="stylesheet">
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="css/fontawesome.min.css">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- <script src="js/gridstack-h5.js"></script> -->
+  <!-- <link href="css/gridstack.min.css" rel="stylesheet" /> -->
+
+</head>
+
+<body>
+  <header>
+    <h2 class="text-center">Тестовое задание</h2>
+  </header>
+  <main class="page-wrapper">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="grid-stack" data-gs-width="12" data-gs-animate="yes">
+            <div class="grid-stack-item" data-gs-x="0" data-gs-y="0" data-gs-width="4" data-gs-height="2">
+              <div class="grid-stack-item-content">1</div>
+            </div>
+            <div class="grid-stack-item" data-gs-x="4" data-gs-y="0" data-gs-width="4" data-gs-height="4">
+              <div class="grid-stack-item-content">2</div>
+            </div>
+            <div class="grid-stack-item" data-gs-x="8" data-gs-y="0" data-gs-width="2" data-gs-height="2"
+              data-gs-min-width="2" data-gs-no-resize="yes">
+              <div class="grid-stack-item-content"> <span class="fa fa-hand-o-up"></span> Drag me! </div>
+            </div>
+            <div class="grid-stack-item" data-gs-x="10" data-gs-y="0" data-gs-width="2" data-gs-height="2">
+              <div class="grid-stack-item-content">4</div>
+            </div>
+            <div class="grid-stack-item" data-gs-x="0" data-gs-y="2" data-gs-width="2" data-gs-height="2">
+              <div class="grid-stack-item-content">5</div>
+            </div>
+            <div class="grid-stack-item" data-gs-x="2" data-gs-y="2" data-gs-width="2" data-gs-height="4">
+              <div class="grid-stack-item-content">6</div>
+            </div>
+            <div class="grid-stack-item" data-gs-x="8" data-gs-y="2" data-gs-width="4" data-gs-height="2">
+              <div class="grid-stack-item-content">7</div>
+            </div>
+            <div class="grid-stack-item" data-gs-x="0" data-gs-y="4" data-gs-width="2" data-gs-height="2">
+              <div class="grid-stack-item-content">8</div>
+            </div>
+            <div class="grid-stack-item" data-gs-x="4" data-gs-y="4" data-gs-width="4" data-gs-height="2">
+              <div class="grid-stack-item-content">9</div>
+            </div>
+            <div class="grid-stack-item" data-gs-x="8" data-gs-y="4" data-gs-width="2" data-gs-height="2">
+              <div class="grid-stack-item-content">10</div>
+            </div>
+            <div class="grid-stack-item" data-gs-x="10" data-gs-y="4" data-gs-width="2" data-gs-height="2">
+              <div class="grid-stack-item-content">11</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- jQuery -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap tether Core JavaScript -->
+  <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+  <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <!-- Draggable-portlet -->
+  <script src="plugins/jqueryui/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+  <script src="plugins/gridstack/lodash.js"></script>
+  <script src="plugins/gridstack/gridstack.js"></script>
+  <script src="plugins/gridstack/gridstack.jQueryUI.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $('.grid-stack').gridstack({
+        width: 12,
+        alwaysShowResizeHandle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+        resizable: {
+          handles: 'e, se, s, sw, w'
+        }
+      });
+    });
+  </script>
+  <!-- <script type="text/javascript">
+    var items = [
+      { content: 'my first widget' }, // will default to location (0,0) and 1x1
+      { w: 2, content: 'another longer widget!' } // will be placed next at (1,0) and 2x1
+    ];
+    var grid = GridStack.init();
+    grid.load(items);
+  </script> -->
+</body>
+
+</html>
