@@ -47,16 +47,140 @@ header {
   // padding-bottom: 60px
 }
 
-.grid-stack {
+.grid-stack-item-removing {
+  opacity: 0.8;
+  filter: blur(5px);
+}
 
+.grid-controls {
   .grid-stack-item-content {
-    background-color: #18BC9C;
+    padding: 10px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    i {
+      font-size: 3rem;
+      margin: 10px 0;
+    }
+  }
+
+  #trash {
+    background: rgba(255, 0, 0, 0.4);
+    margin-bottom: 1.5rem;
+
+
+  }
+
+}
+
+
+.grid-stack-item-content {
+  color: #2c3e50;
+  text-align: center;
+  background-color: #18bc9c;
+  border: 1px solid rgba(120, 130, 140, 0.13);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.grid-stack {
+  .grid-stack-item {
+    .grid-stack-item-content {
+      padding: 0.5rem;
+
+      h1 {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      @media (min-width:0px) and (max-width:320px) {
+        h1 {
+          font-size: 1rem;
+        }
+      }
+
+      @media (min-width:321px) and (max-width:480px) {
+        h1 {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (min-width:481px) and (max-width:768px) {
+        h1 {
+          font-size: 1.4rem;
+        }
+      }
+
+      @media (min-width:769px) and (max-width:992px) {
+        h1 {
+          font-size: 1.6rem;
+        }
+      }
+
+      @media (min-width:993px) and (max-width:1200px) {
+        h1 {
+          font-size: 1.8rem;
+        }
+      }
+
+      i {
+        position: static;
+      }
+
+      &:hover>.removeWidget {
+        opacity: 1;
+      }
+
+      .removeWidget {
+        cursor: pointer;
+        position: absolute;
+        height: 1.2rem;
+        width: 1.2rem;
+        float: right;
+        right: 15px;
+        top: 15px;
+        opacity: 0;
+
+        &::before,
+        &::after {
+          content: "";
+          height: 0.2rem;
+          width: 1.2rem;
+          position: absolute;
+          background-color: #337AB7;
+          border-radius: 2px;
+          transition: all .3s ease-in;
+        }
+
+        &::before {
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          transform: rotate(-45deg);
+        }
+
+        &:hover::before {
+          transform: rotate(-45deg);
+          background-color: #ffffff;
+        }
+
+        &:hover::after {
+          transform: rotate(45deg);
+          background-color: #ffffff;
+        }
+      }
+    }
   }
 }
 
-.grid-stack>.grid-stack-item>.grid-stack-item-content {
-  border: 1px solid rgba(120, 130, 140, 0.13)
-}
+
 
 /*============    ГЛАВНЫЙ ЭКРАН    ===========*/
 
