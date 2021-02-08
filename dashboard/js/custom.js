@@ -94,6 +94,69 @@ function resizeGrid() {
 resizeGrid();
 window.addEventListener('resize', resizeGrid);
 
+
+(function () {
+    var originalAddClassMethod = jQuery.fn.addClass;
+    $.fn.addClass = function () {
+        var result = originalAddClassMethod.apply(this, arguments);
+        $(this).trigger('cssClassChanged');
+        return result;
+    }
+})();
+
+let columnsCount = $("#addWidgetModal .widget-parameters .size-selection .width-selection button.active").text();
+let rowsCount = $("#addWidgetModal .widget-parameters .size-selection .height-selection button.active").text();
+let backgroundColor = "";
+let cellWidth = 0;
+let cellHeight = 0;
+let widthNewWidget = 0;
+let heightNewWidget = 0;
+
+setNewWidgetSize(columnsCount, rowsCount);
+$("#addWidgetModal").bind('cssClassChanged', function () {
+    if ($("#addWidgetModal").hasClass("show")) {
+        cellWidth = 100 / 12;
+        cellHeight = cellWidth * $("#addWidgetModal .widget-preview").width() / $("#addWidgetModal .widget-preview").height();
+        backgroundColor = $("#addWidgetModal .widget-parameters .color-selection button.active").css("backgroundColor");
+        console.log(`${columnsCount}, ${rowsCount}, ${backgroundColor}`);
+        setNewWidgetSize(columnsCount, rowsCount);
+        $("#addWidgetModal .widget-preview .grid-stack-item .grid-stack-item-content").css('backgroundColor', backgroundColor);
+    };
+});
+
+$("#addWidgetModal .widget-parameters .size-selection .width-selection button").each(function () {
+    $(this).bind('cssClassChanged', function () {
+        columnsCount = this.innerHTML;
+        setNewWidgetSize(columnsCount, rowsCount);
+    });
+});
+
+$("#addWidgetModal .widget-parameters .size-selection .height-selection button").each(function () {
+    $(this).bind('cssClassChanged', function () {
+        rowsCount = this.innerHTML;
+        setNewWidgetSize(columnsCount, rowsCount);
+    });
+});
+
+function setNewWidgetSize(columns, rows) {
+    heightNewWidget = cellHeight * rows;
+    widthNewWidget = cellWidth * columns;
+    $("#addWidgetModal .widget-preview .grid-stack-item").attr({
+        'gs-h': rows,
+        'gs-w': columns
+    });
+    $("#addWidgetModal .widget-preview .grid-stack-item").css({
+        'width': `${widthNewWidget}%`,
+        'height': `${heightNewWidget}%`
+    });
+};
+
+$("#addWidgetModal .widget-parameters .color-selection button").each(function () {
+    $(this).bind('cssClassChanged', function () {
+        $("#addWidgetModal .widget-preview .grid-stack-item .grid-stack-item-content").css('backgroundColor', backgroundColor);
+    });
+});
+
 $("#addWidgetModal .widget-parameters .size-selection .width-selection button").click(function (e) {
     e.preventDefault();
     let activeElement = $("#addWidgetModal .widget-parameters .size-selection .width-selection button");
@@ -115,76 +178,17 @@ $("#addWidgetModal .widget-parameters .color-selection button").click(function (
     $(this).addClass('active');
 });
 
-(function () {
-    var originalAddClassMethod = jQuery.fn.addClass;
-    $.fn.addClass = function () {
-        var result = originalAddClassMethod.apply(this, arguments);
-        $(this).trigger('cssClassChanged');
-        return result;
-    }
-})();
-
-let columnsCount = 0;
-let rowsCount = 0;
-let backgroundColor = $("#addWidgetModal .widget-parameters .color-selection button.active").css("backgroundColor");
-let borderColor = $("#addWidgetModal .widget-parameters .color-selection button.active").css("borderColor");
-let cellWidth = 0;
-let cellHeight = 0;
-let widthNewWidget = 0;
-let heightNewWidget = 0;
-
-$("#addWidgetModal").bind('cssClassChanged', function () {
-    if ($("#addWidgetModal").hasClass("show")) {
-        cellWidth = 100 / 12;
-        cellHeight = cellWidth * $("#addWidgetModal .widget-preview").width() / $("#addWidgetModal .widget-preview").height();
-        widthNewWidget = cellWidth * columnsCount;
-        heightNewWidget = cellHeight * rowsCount;
-    };
-});
-
-$("#addWidgetModal .widget-parameters .size-selection .width-selection button").each(function () {
-    $(this).bind('cssClassChanged', function () {
-        columnsCount = this.innerHTML;
-        widthNewWidget = cellWidth * columnsCount;
-        $("#addWidgetModal .widget-preview .grid-stack-item").attr('gs-w', columnsCount);
-        $("#addWidgetModal .widget-preview .grid-stack-item").css('width', `${widthNewWidget}%`);
-    });
-});
-
-$("#addWidgetModal .widget-parameters .size-selection .height-selection button").each(function () {
-    $(this).bind('cssClassChanged', function () {
-        rowsCount = this.innerHTML;
-        heightNewWidget = cellHeight * rowsCount;
-        $("#addWidgetModal .widget-preview .grid-stack-item").attr('gs-h', rowsCount);
-        $("#addWidgetModal .widget-preview .grid-stack-item").css('height', `${heightNewWidget}%`);
-    });
-});
-
-function setNewWidgetHeight(rows) {
-    heightNewWidget = cellHeight * rows;
-    $("#addWidgetModal .widget-preview .grid-stack-item").attr('gs-h', rows);
-    $("#addWidgetModal .widget-preview .grid-stack-item").css('height', `${heightNewWidget}%`);
-};
-$("#addWidgetModal .widget-parameters .color-selection button").each(function () {
-    $(this).bind('cssClassChanged', function () {
-        backgroundColor = $(this).css('backgroundColor');
-        borderColor = $(this).css("borderColor");
-        $("#addWidgetModal .widget-preview .grid-stack-item .grid-stack-item-content").css('backgroundColor', backgroundColor);
-        // $("#addWidgetModal .widget-preview .grid-stack-item .grid-stack-item-content").css('borderColor', borderColor);
-        console.log(backgroundColor);
-    });
-});
-
 $("#addWidgetModal .modal-footer button[type='submit']").click(function (e) {
     e.preventDefault();
     $('#addWidgetModal').modal('hide');
-    renderWidget(columnsCount, rowsCount, backgroundColor, borderColor);
+    renderWidget(columnsCount, rowsCount, backgroundColor);
 });
 
-function renderWidget(w, h, bg_c, br_c) {
+function renderWidget(w, h, bg_c) {
+    console.log(w, h, bg_c);
     grid.addWidget(
         `<div class="grid-stack-item">
-            <div class="grid-stack-item-content" style="background: ${bg_c}; border-color: ${br_c};">
+            <div class="grid-stack-item-content" style="background: ${bg_c};">
                 
             </div>
         </div>`, {
