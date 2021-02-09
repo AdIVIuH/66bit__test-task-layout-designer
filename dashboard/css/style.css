@@ -2,11 +2,13 @@
 /*============    ШРИФТЫ    ===========*/
 /*============    ЦВЕТА    ===========*/
 /*============    ОСНОВНЫЕ СТИЛИ    ===========*/
+/* line 7, ../sass/style.scss */
 html {
   position: relative;
   min-height: 100%;
   background: #ffffff; }
 
+/* line 13, ../sass/style.scss */
 body {
   background: #fff;
   font-family: sans-serif;
@@ -15,35 +17,39 @@ body {
   color: #67757c;
   font-weight: 300; }
 
+/* line 22, ../sass/style.scss */
 ul,
 li {
   margin: 0;
   padding: 0; }
 
+/* line 28, ../sass/style.scss */
 a,
 a:hover,
 a:focus,
 a:active {
   text-decoration: none; }
 
+/* line 36, ../sass/style.scss */
 .create-widget h3 {
   margin-bottom: 20px; }
+/* line 40, ../sass/style.scss */
 .create-widget .size-selection {
   margin-bottom: 20px; }
+  /* line 43, ../sass/style.scss */
   .create-widget .size-selection .btn-secondary,
   .create-widget .size-selection .btn-secondary.disabled {
-    -webkit-box-shadow: 0 2px 2px 0 rgba(169, 169, 169, 0.14), 0 3px 1px -2px rgba(169, 169, 169, 0.2), 0 1px 5px 0 rgba(169, 169, 169, 0.12);
     box-shadow: 0 2px 2px 0 rgba(169, 169, 169, 0.14), 0 3px 1px -2px rgba(169, 169, 169, 0.2), 0 1px 5px 0 rgba(169, 169, 169, 0.12);
-    -webkit-transition: 0.2s ease-in;
     -o-transition: 0.2s ease-in;
     transition: 0.2s ease-in;
     background-color: #ffffff;
     color: #67757c;
     border-color: #b1b8bb; }
+  /* line 53, ../sass/style.scss */
   .create-widget .size-selection .btn-secondary.disabled:hover,
   .create-widget .size-selection .btn-secondary:hover {
-    -webkit-box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(169, 169, 169, 0.2);
     box-shadow: 0 14px 26px -12px rgba(169, 169, 169, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(169, 169, 169, 0.2); }
+  /* line 58, ../sass/style.scss */
   .create-widget .size-selection .btn-secondary.active,
   .create-widget .size-selection .btn-secondary.active:focus,
   .create-widget .size-selection .btn-secondary.active:active,
@@ -56,48 +62,63 @@ a:active {
     background: #1976d2;
     border: 1px solid #1976d2;
     box-shadow: 0 2px 2px 0 rgba(66, 165, 245, 0.14), 0 3px 1px -2px rgba(66, 165, 245, 0.2), 0 1px 5px 0 rgba(66, 165, 245, 0.12);
-    -webkit-box-shadow: 0 2px 2px 0 rgba(66, 165, 245, 0.14), 0 3px 1px -2px rgba(66, 165, 245, 0.2), 0 1px 5px 0 rgba(66, 165, 245, 0.12);
-    -webkit-transition: 0.2s ease-in;
     -o-transition: 0.2s ease-in;
-    transition: 0.2s ease-in; }
+    transition: 0.2s ease-in;
+    -webkit-transition: 0.2s ease-in;
+    -moz-transition: 0.2s ease-in;
+    -ms-transition: 0.2s ease-in;
+}
+/* line 76, ../sass/style.scss */
 .create-widget .color-selection .btn {
   min-width: 2.5rem;
   min-height: 2rem;
   margin: 0 10px 20px 0; }
+/* line 84, ../sass/style.scss */
 .create-widget .widget-preview {
   display: flex;
   width: 100%;
   height: 100%;
   min-height: 470px; }
+  /* line 90, ../sass/style.scss */
   .create-widget .widget-preview .grid-stack-item {
     margin: auto; }
+  /* line 94, ../sass/style.scss */
   .create-widget .widget-preview .grid-stack-item-content {
     height: 100%; }
 
+/* line 100, ../sass/style.scss */
 header {
   padding: 0.5rem;
   background: #7455ff; }
+  /* line 104, ../sass/style.scss */
   header h2 {
     color: #fff; }
 
+/* line 109, ../sass/style.scss */
 .page-wrapper {
   padding: 1.3rem; }
 
+/* line 113, ../sass/style.scss */
 .grid-stack-item-removing {
   opacity: 0.8;
   filter: blur(5px); }
 
+/* line 119, ../sass/style.scss */
 .grid-controls .grid-stack-item-content {
   padding: 10px; }
+  /* line 122, ../sass/style.scss */
   .grid-controls .grid-stack-item-content:hover {
     opacity: 0.9; }
+  /* line 126, ../sass/style.scss */
   .grid-controls .grid-stack-item-content i {
     font-size: 3rem;
     margin: 10px 0; }
+/* line 132, ../sass/style.scss */
 .grid-controls #trash {
   background: rgba(255, 0, 0, 0.4);
   margin-bottom: 1.5rem; }
 
+/* line 139, ../sass/style.scss */
 .grid-stack-item-content {
   color: #2c3e50;
   text-align: center;
@@ -106,8 +127,10 @@ header {
   border-radius: 0.5rem;
   overflow: hidden; }
 
+/* line 150, ../sass/style.scss */
 .grid-stack .grid-stack-item .grid-stack-item-content {
   padding: 0.5rem; }
+  /* line 153, ../sass/style.scss */
   .grid-stack .grid-stack-item .grid-stack-item-content h1 {
     position: absolute;
     left: 50%;
@@ -115,10 +138,13 @@ header {
     transform: translate(-50%, -50%);
     text-align: center;
     font-size: 1.4rem; }
+  /* line 162, ../sass/style.scss */
   .grid-stack .grid-stack-item .grid-stack-item-content i {
     position: static; }
+  /* line 166, ../sass/style.scss */
   .grid-stack .grid-stack-item .grid-stack-item-content:hover > .removeWidget {
     opacity: 1; }
+  /* line 170, ../sass/style.scss */
   .grid-stack .grid-stack-item .grid-stack-item-content .removeWidget {
     cursor: pointer;
     position: absolute;
@@ -128,6 +154,7 @@ header {
     right: 15px;
     top: 15px;
     opacity: 0; }
+    /* line 180, ../sass/style.scss */
     .grid-stack .grid-stack-item .grid-stack-item-content .removeWidget::before, .grid-stack .grid-stack-item .grid-stack-item-content .removeWidget::after {
       content: "";
       height: 0.2rem;
@@ -136,13 +163,17 @@ header {
       background-color: #337AB7;
       border-radius: 2px;
       transition: all .3s ease-in; }
+    /* line 191, ../sass/style.scss */
     .grid-stack .grid-stack-item .grid-stack-item-content .removeWidget::before {
       transform: rotate(45deg); }
+    /* line 195, ../sass/style.scss */
     .grid-stack .grid-stack-item .grid-stack-item-content .removeWidget::after {
       transform: rotate(-45deg); }
+    /* line 199, ../sass/style.scss */
     .grid-stack .grid-stack-item .grid-stack-item-content .removeWidget:hover::before {
       transform: rotate(-45deg);
       background-color: #ffffff; }
+    /* line 204, ../sass/style.scss */
     .grid-stack .grid-stack-item .grid-stack-item-content .removeWidget:hover::after {
       transform: rotate(45deg);
       background-color: #ffffff; }
@@ -161,17 +192,22 @@ header {
 /*============    	ВСПЛЫВАЮЩИЕ ОКНА    ===========*/
 /*============    	АДАПТИВ    ===========*/
 @media (min-width: 0px) and (max-width: 320px) {
+  /* line 244, ../sass/style.scss */
   .grid-stack .grid-stack-item .grid-stack-item-content h1 {
     font-size: 0.8rem; } }
 @media (min-width: 321px) and (max-width: 480px) {
+  /* line 256, ../sass/style.scss */
   .grid-stack .grid-stack-item .grid-stack-item-content h1 {
     font-size: 1rem; } }
 @media (min-width: 481px) and (max-width: 768px) {
+  /* line 268, ../sass/style.scss */
   .grid-stack .grid-stack-item .grid-stack-item-content h1 {
     font-size: 1.1rem; } }
 @media (min-width: 769px) and (max-width: 992px) {
+  /* line 280, ../sass/style.scss */
   .grid-stack .grid-stack-item .grid-stack-item-content h1 {
     font-size: 1.2rem; } }
 @media (min-width: 993px) and (max-width: 1200px) {
+  /* line 292, ../sass/style.scss */
   .grid-stack .grid-stack-item .grid-stack-item-content h1 {
     font-size: 1.3rem; } }
