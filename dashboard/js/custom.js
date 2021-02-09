@@ -189,7 +189,8 @@ function renderWidget(w, h, bg_c) {
     grid.addWidget(
         `<div class="grid-stack-item">
             <div class="grid-stack-item-content" style="background: ${bg_c};">
-                
+                <span class="removeWidget" onClick="grid.removeWidget(this.parentNode.parentNode)"></span>
+
             </div>
         </div>`, {
             w: w,
